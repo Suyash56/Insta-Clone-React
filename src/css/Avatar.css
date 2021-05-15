@@ -1,0 +1,60 @@
+.avatar-image {
+  background: #eee;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/144644/profile/profile-80.jpg");
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+.avatar-dropdown-menu {
+  position: relative;
+  cursor: pointer;
+}
+.avatar-dropdown-menu-items {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(1) translate(0, 0);
+  top: calc(100% + 25px);
+  position: absolute;
+  right: 0;
+}
+
+.open-avatar-dropdown-menu-items {
+  display: block;
+  visibility: visible;
+  transition: all 0.2s;
+  transform: scale(0.8) translate(20px, -30px);
+  opacity: 1;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: calc(100% + 25px);
+  padding: 0;
+  margin: 0;
+  background: white;
+  line-height: 45px;
+  padding: 8px 0;
+  min-width: 180px;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.open-avatar-dropdown-menu-items a {
+  padding: 0 1rem;
+  display: block;
+  color: #555;
+}
+.open-avatar-dropdown-menu-items a:hover {
+  background: #fafafa;
+}
+.open-avatar-dropdown-menu-items ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.open-avatar-dropdown-menu-items li {
+  display: block;
+  margin: 0;
+}
