@@ -5,6 +5,7 @@ import Avatar from "./Avatar";
 import { Button, Input } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
+import { useToasts } from "react-toast-notifications";
 import "../css/App.css";
 
 function getModalStyle() {
@@ -30,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
+  const { addToast } = useToasts();
+
   const [open, setOpen] = useState(false);
   const [openSignin, setOpenSignin] = useState(false);
   const classes = useStyles();
@@ -72,13 +75,22 @@ export default function Header() {
         authUser.user.updateProfile({
           displayName: username,
         });
+        addToast("Sign Up successfully", {
+          appearance: "success",
+          autoDismiss: true,
+        });
+        setUsername("");
+        setemail("");
+        setPassword("");
+        setOpen(false);
+        setSignUp(true);
       })
-      .catch((err) => alert(err.message));
-    setUsername("");
-    setemail("");
-    setPassword("");
-    setOpen(false);
-    setSignUp(true);
+      .catch((err) => {
+        addToast(err.message, {
+          appearance: "warning",
+          autoDismiss: true,
+        });
+      });
   };
 
   const signIn = (e) => {
@@ -86,13 +98,21 @@ export default function Header() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        addToast("Sign In successfully", {
+          appearance: "success",
+          autoDismiss: true,
+        });
         setSignUp(false);
+        setemail("");
+        setPassword("");
+        setOpenSignin(false);
       })
-      .catch((err) => alert(err.message));
-
-    setemail("");
-    setPassword("");
-    setOpenSignin(false);
+      .catch((err) => {
+        addToast(err.message, {
+          appearance: "warning",
+          autoDismiss: true,
+        });
+      });
   };
 
   return (

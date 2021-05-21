@@ -1,0 +1,60 @@
+.app__account {
+  display: flex;
+  background-color: #eee;
+}
+
+body {
+  background-color: #eee;
+}
+
+.app_account_user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .user_pic {
+  height: 20vw;
+  width: 20vw;
+  border-radius: 50%;
+  margin-left: 200px;
+  background: url("http://s3.amazonaws.com/37assets/svn/765-default-avatar.png");
+  background-repeat: no-repeat;
+  object-fit: contain;
+} */
+
+.user_pic img {
+  height: 20vw;
+  width: 20vw;
+  border-radius: 50%;
+  margin-left: 200px;
+  background: #9e9d95;
+  cursor: pointer;
+}
+
+.user_pic img:hover {
+  opacity: 0.5;
+  z-index: 501;
+}
+
+.uploadicon {
+  display: none;
+}
+
+.user_pic img:hover + .uploadicon {
+  display: block;
+  z-index: 500;
+}
+
+.acount_divider {
+  border-left: 2px solid rgb(100, 99, 99);
+  height: 400px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+#uploadfile {
+  display: none;
+  position: absolute;
+  left: 80px;
+}

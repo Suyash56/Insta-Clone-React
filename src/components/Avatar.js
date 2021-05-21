@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "./Firebase";
 import "../css/Avatar.css";
 
@@ -22,7 +23,7 @@ function Avatar() {
         >
           <ul>
             <li>
-              <a>MY ACCOUNT</a>
+              <Link to="/myaccount">MY ACCOUNT</Link>
             </li>
             <li>
               <a onClick={() => auth.signOut()}>LOG OUT</a>

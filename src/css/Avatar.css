@@ -45,6 +45,7 @@
   padding: 0 1rem;
   display: block;
   color: #555;
+  text-decoration: none;
 }
 .open-avatar-dropdown-menu-items a:hover {
   background: #fafafa;

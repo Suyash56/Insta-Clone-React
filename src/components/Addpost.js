@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { db, storage } from "./Firebase";
+import { useToasts } from "react-toast-notifications";
 import firebase from "firebase";
 import "../css/Addpost.css";
 
 function Addpost({ username }) {
+  const { addToast } = useToasts();
+
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
@@ -43,6 +46,10 @@ function Addpost({ username }) {
               imageUrl: url,
               username: username,
             });
+            addToast("Post is added successfully", {
+              appearance: "success",
+              autoDismiss: true,
+            });
             setProgress(0);
             setCaption("");
             setImage(null);
@@ -53,7 +60,11 @@ function Addpost({ username }) {
   return (
     <div className="app__addpost">
       {/* Progress bar */}
-      <progress className="imageUpload__progress" value={progress} max="100" ></progress>
+      <progress
+        className="imageUpload__progress"
+        value={progress}
+        max="100"
+      ></progress>
       {/* Take Caption from user */}
       <input
         type="text"
